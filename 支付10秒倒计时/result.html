@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>恭喜您</title>
+  <style>
+    #content{
+      width: 300px;
+      margin: 0 auto;
+      position: relative;
+    }
+    #jump{
+      display: flex;
+    }
+    @keyframes jump {
+      0%{
+        font-size: 30px;
+      }
+      50%{
+        font-size: 50px;
+      }
+      100%{
+        font-size: 30px;
+      }
+    }
+    span{
+      /* font-size: 30px; */
+      color: red;
+      animation: jump infinite 2s ease;
+    }
+    button{
+      position: absolute;
+      top: 145px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>您已获得成功的秘诀</h1>
+    <div id="jump">
+      <p>秘诀就在您</p><span>心中</span>
+    </div>
+    <button>返回支付界面</button>
+  </div>
+<script>
+  let back = document.getElementsByTagName('button')[0]
+  back.onclick = ()=>{
+    location.href = './index.html'
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>支付页面</title>
+  <style>
+    div{
+      width: 200px;
+      height: 280px;
+      background-color: #eee;
+      padding: 20px;
+      margin: 0 auto;
+    }
+    button{
+      margin: 30px 25px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>商品：成功的秘诀</p>
+    <p>原价：19800000元</p>
+    <p>现价：1.98元</p>
+    <p>内容：努力、坚持、百折不挠</p>
+    <p>地址：地球</p>
+    <button>取消</button>
+    <button>支付</button>
+  </div>
+
+  <script>
+    const btnPay = document.getElementsByTagName('button')[1]
+    btnPay.onclick = ()=>{
+      let res = window.confirm('您确定支付吗？')
+      if(res){
+        location.href='./link.html'
+      }
+    }
+  </script>
+</body>
+</html>

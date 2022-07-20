@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>支付成功</title>
+<style>
+  div{
+    margin: 0 auto;
+    width: 500px;
+  }
+  #jumpTo{
+    color: red;
+    font-size: 30px;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <h2>恭喜您，支付成功</h2>
+    <span id="jumpTo">10</span>秒后自动返回首页
+    <button>立即返回</button>
+  </div>
+
+  <script>
+    window.onload = ()=>{
+      let timer = 10
+      setInterval(()=>{
+        timer--
+        let display = document.getElementById('jumpTo')
+        display.innerText = timer
+        if(timer===0){
+          location.href = './result.html'
+        }
+      },1000)
+      let back = document.getElementsByTagName('button')[0]
+      back.onclick = ()=>{
+        location.href = './result.html'
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Document</title>
+  <style>
+    a{
+      text-decoration: none;
+      color: rgb(14, 16, 41);
+    }
+    a:hover{
+      color: rgb(85, 93, 170);
+    }
+    .vCode{
+      outline: 5px solid slategrey;
+      padding: 20px;
+      width: 250px;
+      height: 150px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 100px;
+    }
+    .code{
+      background-color: rgb(245, 245, 245);
+      display: inline-block;
+      width: 100px;
+      padding: 2px;
+      letter-spacing: 2px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-family: 'Papyrus',fantasy,serif;
+      font-size: 25px;
+      color: dodgerblue;
+      font-style: italic;
+      font-weight: bold;
+    }
+    .inputCode{
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="vCode">
+    <!-- 验证码部分 -->
+    <div class="codeShow">
+      <span class="code" id="checkCode">abc24</span>
+      <a href="" id="linkbt">看不清换一张</a>
+    </div>
+    <!-- 用户输入部分 -->
+    <div class="inputCode">
+      <label for="inputCode">验证码:</label>
+      <input type="text" id="inputCode">
+      <span id="textShow"></span>
+    </div>
+    <input type="button" id="Button1" value="确定">
+  </div>
+
+  <script>
+    // 生成验证码 随机生成6位字符串，范围是0-9 a-f
+    window.onload = function(){
+    let res = getCode()
+    function getCode(){
+      const arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+      let str = ''
+      for(let i=0;i<6;i++){
+      const num = Math.round(Math.random()*(15-0)+0)
+      str += arr[num]
+      }
+      return str
+      }
+      document.getElementById('checkCode').innerText = res
+    }
+
+    // 设置“看不清换一张”点击事件
+    document.getElementById('linkbt').onclick = function(){
+      document.getElementById('checkCode').innerText = getCode()
+    }
+
+    // 提交时进行对比
+    document.getElementById('Button1').onclick = function(){
+      const code = document.getElementById('checkCode').innerText
+      const inputCode = document.getElementById('inputCode').value
+      if(code === inputCode){
+        alert('验证成功')
+      }else{
+        alert('验证失败，请重新输入')
+      }
+    }
+  </script>
+</body>
+</html>
